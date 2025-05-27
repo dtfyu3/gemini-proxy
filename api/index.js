@@ -14,7 +14,7 @@ module.exports = async (req, res) => {
     try {
         const body = req.body;
         const endpoint = `${config.url}?key=${config.key}`;
-        const response = await axios.post(endpoint, body);
+        const response = await axios.post(endpoint, body, { headers: { 'Content-Type': 'application/json' } });
         const data = JSON.parse(response.data);
         console.log(data);
         res.status(200).json({ status: "OK" });
