@@ -13,7 +13,8 @@ module.exports = async (req, res) => {
 
     try {
         const body = req.body;
-        const response = await axios.post(config.url, body);
+        const endpoint = `${config.url}?key=${config.key}`;
+        const response = await axios.post(endpoint, body);
         console.log(response.data);
         res.status(200).json({ status: "OK" });
     } catch (error) {
